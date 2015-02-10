@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <title>Tinder.js</title>
+    <link rel="stylesheet" href="styles/bootstrap.css">
+    <script src="javascript/query.tinder.js"></script>
+    <script src="javascript/ajax.tinder.js"></script>
+    <script src="javascript/geolocation.tinder.js"></script>
+    <script src="javascript/storage.tinder.js"></script>
+    <script src="javascript/notifications.tinder.js"></script>
+  </head>
+  <body>
+  <div class="container">
+    <div class="col-lg-10 col-lg-offset-1">
+    <div class="masthead">
+      <h3 class="text-muted text-center">Tinder*Geolocalization</h3>
+    <!-- TinderQuery! -->
+    </div>
+    
+      <script>
+        $ = window.Tinder;
+      </script>
+  
+    <!-- TinderAjax! -->
+    
+      <button id="getLocation" class="btn btn-info">Get My Location</button>
+      <script>
+        var button = $.query("#getLocation");
+        $.on(button, "click", function(event) {
+          console.log("i work")
+          // do something with latitude longitude
+        });
+      </script>
+    
+    <!-- TinderAjax! -->
+    <button id="getAddress" class="btn btn-info">Get My Address</button>
+    <script>
+      var button = $.query("#getAddress");
+      $.on(button, "click", function(event) {
+        $.ajax(url, data, function(response) {
+          // do something with response
+        });
+      });
+    </script>
+
+    <!-- TinderStorage! -->
+    <button id="storeData" class="btn btn-info">Store Data</button>
+    <script>
+      var button = $.query("#storeData");
+      $.on(button, "click", function(event) {
+        // save geolocation and address in local storage
+        $.store(data);
+      });
+    </script>
+
+    <!-- TinderNotification! -->
+    <button id="notifyData" class="btn btn-info">Notify Data</button>
+    <script>
+      var button = $.query("#notifyData");
+      $.on(button, "click", function(event) {
+        // display data in a notification
+        $.notify(data);
+      });
+    </script>
+
+  </div>  <!-- closing masthead -->
+  </div><!-- closing container -->
+  </body>
+</html>
